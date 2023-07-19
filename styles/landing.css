@@ -1,0 +1,9 @@
+.header-search-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 20px;
+}
+
+.header-search-input input {
+  outline: none;
+  width: 100%;
+}
