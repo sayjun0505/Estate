@@ -5,9 +5,11 @@
     "start": "next start -p 443"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-spring": "^9.7.2",
     "waait": "^1.0.5"
   },
   "devDependencies": {
