@@ -21,7 +21,7 @@ export default function BackgroundImage() {
   }, [image])
 
   return (
-    <> 
+    <>
       <ImageCrossFade
         imgUrl={images[image]}
         width={1728}
@@ -32,6 +32,5 @@ export default function BackgroundImage() {
         <h1 className="text-2xl text-white">ESPEJO AOUA</h1>
       </animated.div> */}
     </>
-
-  );
+  )
 }
