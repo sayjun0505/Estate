@@ -13,7 +13,7 @@ export default function BackgroundImage() {
   ]
 
   useEffect(() => {
-    wait(4000).then(() => {
+    wait(7000).then(() => {
       setImage((image + 1) % 3)
     })
   }, [image])
