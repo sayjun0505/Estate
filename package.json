@@ -5,7 +5,7 @@
     "start": "next start -p 443"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.0",
+    "framer-motion": "^10.12.23",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",

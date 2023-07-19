@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import ImageCrossFade from "./ImageCrossFade"
 // import { useSpring, animated } from 'react-spring';
+import wait from "waait";
 export default function BackgroundImage() {
   const [image, setImage] = useState<number>(0);
   const [show, setShow] = useState(false);
@@ -14,15 +15,11 @@ export default function BackgroundImage() {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setImage((image + 1) % images.length);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, [image, images]);
-  // const animation = useSpring({
-  //   opacity: show ? 1 : 0,
-  //   transform: show ? 'translateX(0)' : 'translateX(100vw)',
-  // });
+    wait(7000).then(() => {
+      setImage((image + 1) % 3)
+    })
+  }, [image])
+
   return (
     <> 
       <ImageCrossFade
