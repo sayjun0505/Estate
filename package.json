@@ -1,14 +1,15 @@
 {
   "scripts": {
-    "dev": "next dev  -p 443",
-    "build": "next build  -p 443",
-    "start": "next start -p 443"
+    "dev": "next dev  -p 80",
+    "build": "next build",
+    "start": "next start -p 80"
   },
   "dependencies": {
     "framer-motion": "^10.12.23",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-moving-text": "^0.0.7",
     "waait": "^1.0.5"
   },
   "devDependencies": {
