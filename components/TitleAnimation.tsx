@@ -2,25 +2,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 interface animationProps {
   texts: string[];
-  interval: number;
+  interval?: number;
   className?: string;
   delay?: number;
+  slideIndex?: number;
 }
 
 const TitleAnimation: React.FC<animationProps> = (props) => {
   const effects = ["lefttoright", "up", "righttoleft"]; // Add more effects if needed
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { texts, interval, delay = 0, className } = props;
-  useEffect(() => {
-    const delayTimeout = setTimeout(() => {
-      const interv = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-      }, interval);
-      return () => clearInterval(interv);
-    }, delay);
+  const { texts, delay = 0, className, slideIndex } = props;
 
-    return () => clearInterval(delayTimeout);
-  }, [texts.length, interval, delay]);
+  let timeoutId: NodeJS.Timeout | undefined;
+
+  const resetInterval = () => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      setCurrentIndex((currentIndex) => (currentIndex + 1) % texts.length);
+    }, delay);
+  };
+
+  useEffect(() => {
+    resetInterval();
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [slideIndex]);
 
   const titleVariants: any = {
     lefttoright: {
