@@ -50,13 +50,13 @@ const Home: NextPage = () => {
                   slideIndex={imageIndex}
                   texts={["VILLA!", "GAMBRIN"]}
                   interval={7000}
-                  className="text-white text-5xl lg:text-6xl"
+                  className="text-white text-4xl lg:text-6xl"
                 />
                 <TitleAnimation
                   slideIndex={imageIndex}
                   texts={["ESPEJO AQUA", ""]}
                   interval={7000}
-                  className="text-white text-5xl lg:text-6xl"
+                  className="text-white text-4xl lg:text-6xl"
                 />
               </div>
               <div className="max-w-[500px]">
@@ -76,9 +76,9 @@ const Home: NextPage = () => {
           <BackgroundImage imageIndex={imageIndex} setImageIndex={setImageIndex} />
         </main>
 
-        <div onClick={()=>alert("I'm next btn")} className="absolute bottom-20 right-10 hover:cursor-pointer">
+        <div onClick={()=>alert("I'm next btn")} className="absolute bottom-5 md:bottom-5 lg:bottom-20 right-10 hover:cursor-pointer">
           <Image height={10} width={100} src="/next_arrow.svg" alt="" />
-          <p className="text-white text-center text-xl">Next</p>
+          <p className="text-white text-center ">Next</p>
         </div>
       </div>
 
