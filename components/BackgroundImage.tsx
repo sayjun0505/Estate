@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
 import ImageCrossFade from "./ImageCrossFade";
-import wait from "waait";
 
-export default function BackgroundImage() {
-  const [image, setImage] = useState<number>(0);
-
+interface imageProps {
+  imageIndex?: number;
+  setImageIndex?: (open: number) => void;
+}
+const BackgroundImage: React.FC<imageProps> = ({ imageIndex = 0, setImageIndex = () => {} }) => {
   const images = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg"];
+  let timeoutId: NodeJS.Timeout | undefined;
+
+  const resetInterval = () => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      setImageIndex((imageIndex + 1) % images.length);
+    }, 7000);
+  };
 
   useEffect(() => {
-    wait(7000).then(() => {
-      setImage((image + 1) % images.length);
-    });
-  }, [image]);
+    resetInterval();
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [imageIndex]);
 
-  return <ImageCrossFade imgUrl={images[image]} width={1728} height={864} />;
-}
+  return <ImageCrossFade imgUrl={images[imageIndex]} />;
+};
+export default BackgroundImage;

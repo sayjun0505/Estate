@@ -4,11 +4,9 @@ import wait from "waait";
 
 interface ImageCrossFadeProps {
   imgUrl: string;
-  width: number;
-  height: number;
 }
 
-const ImageCrossFade = ({ imgUrl, width, height }: ImageCrossFadeProps) => {
+const ImageCrossFade: React.FC<ImageCrossFadeProps> = ({ imgUrl }) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
   const [loadedImage, setLoadedImage] = useState<string>(imgUrl);
@@ -22,8 +20,8 @@ const ImageCrossFade = ({ imgUrl, width, height }: ImageCrossFadeProps) => {
     <div className="absolute top-0 z-[-1] left-0 w-full bg-black">
       {fadeIn && (
         <div
-          className={`w-full absolute top-0 left-0 z-10 transition-opacity duration-1000 ${
-            loaded ? "opacity-100" : "opacity-0"
+          className={`w-full absolute top-0 left-0 z-10 transition duration-1000 ${
+            loaded ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
           style={{ backgroundImage: `url(${imgUrl})`, height: "100vh", backgroundSize: "cover" }}
         >
